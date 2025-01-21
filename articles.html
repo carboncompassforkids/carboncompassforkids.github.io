@@ -42,38 +42,34 @@
 
     <!-- Main Content -->
     <div class="blogs" style="min-height: 170vh; margin-bottom: 0; padding-bottom: 50px;">
-      <h1 style="margin-bottom: 50px; color: white;">Latest Articles</h1>
-      <div class="blogs__container" style="gap: 70px; padding-bottom: 20px;"> <!-- Increased spacing -->
+      <h1 style="margin-bottom: 50px; color: white; text-align: center;">Latest Articles</h1>
+      <div class="blogs__container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;"> 
         <!-- Article 1 -->
-        <div class="blogs__card" style="height: 380px; margin-bottom: 40px;"> <!-- Adjusted card margin -->
-          <img src="SCIAM.webp" alt="SCIAM Article" style="width: 100%; height: 200px; object-fit: cover;" />
-          <h2 style="color: white;">SCIAM</h2>
-          <p style="color: white;">
-            Singapore Airlines Turbulence: Why Climate Change Is Making Flights Rougher
-          </p>
-          <button type="button" onclick="location.href='https://www.scientificamerican.com/article/singapore-airlines-turbulence-why-climate-change-is-making-flights-rougher/'">READ</button>
+        <div class="blogs__card" style="background-color: #1c1c1c; padding: 20px; border-radius: 8px;">
+          <img src="SCIAM.webp" alt="SCIAM Article" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;" />
+          <h2 style="color: white; margin-top: 10px;">SCIAM</h2>
+          <p style="color: white;">Singapore Airlines Turbulence: Why Climate Change Is Making Flights Rougher</p>
+          <button type="button" onclick="location.href='https://www.scientificamerican.com/article/singapore-airlines-turbulence-why-climate-change-is-making-flights-rougher/'" style="margin-top: 10px;">READ</button>
         </div>
         <!-- Article 2 -->
-        <div class="blogs__card" style="height: 380px; margin-bottom: 40px;"> <!-- Adjusted card margin -->
-          <img src="CnnPage.webp" alt="CNN Article" style="width: 100%; height: 200px; object-fit: cover;" />
-          <h2 style="color: white;">CNN</h2>
+        <div class="blogs__card" style="background-color: #1c1c1c; padding: 20px; border-radius: 8px;">
+          <img src="CnnPage.webp" alt="CNN Article" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;" />
+          <h2 style="color: white; margin-top: 10px;">CNN</h2>
           <p style="color: white;">Climate change will make you poorer, according to a new report</p>
-          <button type="button" onclick="location.href='https://www.cnn.com/2024/04/17/business/climate-change-disasters-economic-cost/index.html'">READ</button>
+          <button type="button" onclick="location.href='https://www.cnn.com/2024/04/17/business/climate-change-disasters-economic-cost/index.html'" style="margin-top: 10px;">READ</button>
         </div>
         <!-- Article 3 -->
-        <div class="blogs__card" style="height: 380px; margin-bottom: 40px;"> <!-- Adjusted card margin -->
-          <img src="Bloomberg.jpeg" alt="Bloomberg Article" style="width: 100%; height: 200px; object-fit: cover;" />
-          <h2 style="color: white;">BLOOMBERG</h2>
-          <p style="color: white;">
-            Rotten Bananas in a Scorching India Expose Climate's Food Cost
-          </p>
-          <button type="button" onclick="location.href='https://www.bloomberg.com/news/features/2024-05-24/india-heat-waves-linked-to-climate-change-cause-massive-food-waste'">READ</button>
+        <div class="blogs__card" style="background-color: #1c1c1c; padding: 20px; border-radius: 8px;">
+          <img src="Bloomberg.jpeg" alt="Bloomberg Article" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;" />
+          <h2 style="color: white; margin-top: 10px;">BLOOMBERG</h2>
+          <p style="color: white;">Rotten Bananas in a Scorching India Expose Climate's Food Cost</p>
+          <button type="button" onclick="location.href='https://www.bloomberg.com/news/features/2024-05-24/india-heat-waves-linked-to-climate-change-cause-massive-food-waste'" style="margin-top: 10px;">READ</button>
         </div>
       </div>
     </div>
 
     <!-- Footer -->
-    <div class="footer__container" style="background-color: #000000;"> <!-- Extend black background -->
+    <div class="footer__container" style="background-color: #000000; margin-top: 50px;"> <!-- Extend black background -->
       <section class="social__media">
         <div class="social__media--wrap">
           <div class="footer__logo">
@@ -83,46 +79,11 @@
           </div>
           <p class="website__rights" style="color: white;">© Climate Change 2024. All rights reserved</p>
           <div class="social__icons">
-            <a
-              class="social__icon--link"
-              href="/"
-              target="_blank"
-              aria-label="Facebook"
-            >
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a
-              class="social__icon--link"
-              href="/"
-              target="_blank"
-              aria-label="Instagram"
-            >
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a
-              class="social__icon--link"
-              href="https://www.youtube.com/watch?v=G4H1N_yXBiA"
-              target="_blank"
-              aria-label="YouTube"
-            >
-              <i class="fab fa-youtube"></i>
-            </a>
-            <a
-              class="social__icon--link"
-              href="/"
-              target="_blank"
-              aria-label="Twitter"
-            >
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a
-              class="social__icon--link"
-              href="/"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
+            <a class="social__icon--link" href="/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a class="social__icon--link" href="/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a class="social__icon--link" href="https://www.youtube.com/watch?v=G4H1N_yXBiA" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a class="social__icon--link" href="/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a class="social__icon--link" href="/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           </div>
         </div>
       </section>
