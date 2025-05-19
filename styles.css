@@ -1,0 +1,385 @@
+/* styles.css - Full File for Carbon Compass for Kids */
+
+body {
+  font-family: 'Comic Neue', cursive, sans-serif;
+  background-color: #f1fdf4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #4caf50;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#navbar__logo {
+  font-size: 1.8rem;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar__menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.navbar__menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar__menu a:hover {
+  color: #ffd54f;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #e8f5e9;
+  text-align: center;
+  padding: 4rem 1rem;
+  color: #1b5e20;
+  border-bottom: 4px dashed #66bb6a;
+  background-image: url('https://i.ytimg.com/vi/MqH8WtR5hWs/maxresdefault.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+/* Blogs / Articles Section */
+.blogs {
+  padding: 2rem 1rem;
+  background-color: #f1fdf4;
+  text-align: center;
+}
+
+.blogs h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #4a148c;
+}
+
+.blogs__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  animation: fadeIn 1s ease-in;
+}
+
+.blogs__card {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  min-height: 280px;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideUp 0.6s ease-in-out;
+}
+
+.blogs__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.65));
+  z-index: 0;
+}
+
+.blogs__card h2,
+.blogs__card p,
+.blogs__card a {
+  position: relative;
+  z-index: 1;
+}
+
+.blogs__card h2 {
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.blogs__card p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #f0f0f0;
+}
+
+.read-btn {
+  background: linear-gradient(135deg, #66bb6a, #43a047);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.read-btn:hover {
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Organizations */
+.orgs {
+  padding: 2rem;
+  background-color: #e8f5e9;
+  text-align: center;
+}
+
+.orgs h1 {
+  font-size: 2rem;
+  color: #2e7d32;
+  margin-bottom: 2rem;
+}
+
+.orgs__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.orgs__section {
+  width: 250px;
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideIn 0.6s forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.orgs__section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.orgs__icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.orgs__section h2,
+.orgs__section p {
+  color: #000 !important;
+  font-family: 'Comic Neue', cursive, sans-serif;
+}
+
+.orgs__section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.orgs__section p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.orgs__section button {
+  background: linear-gradient(135deg, #66bb6a, #43a047);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.orgs__section button:hover {
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Calculator */
+.carbon-calculator {
+  padding: 2rem;
+  background-color: #f1f8e9;
+  text-align: center;
+}
+
+.carbon-calculator h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2e7d32;
+}
+
+.carbon-calculator p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 80%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  background-color: #81c784;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #66bb6a;
+  transform: scale(1.1);
+}
+
+/* Footer */
+.footer__container {
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar__menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blogs h1 {
+    font-size: 1.5rem;
+  }
+
+  .blogs__card {
+    max-width: 90%;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .orgs__section {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  #navbar__logo {
+    font-size: 1.4rem;
+  }
+
+  .read-btn {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .orgs__icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .orgs__section {
+    padding: 1rem 0.5rem;
+  }
+}

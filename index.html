@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carbon Compass For Kids 🌎</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Comic Neue', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('background.webp');
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #333;
+    }
+
+    .hero {
+      background-color: rgba(224, 247, 250, 0.85);
+      padding: 4rem 1rem;
+      text-align: center;
+      border-bottom: 4px dashed #66bb6a;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #00796b;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      color: #004d40;
+    }
+
+    .climate-section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .climate-section h2 {
+      font-size: 2rem;
+      color: #388e3c;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .climate-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .description {
+      flex: 1 1 300px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .image-container {
+      flex: 1 1 250px;
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 200px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .footer__container {
+      background-color: #4caf50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- 🌱 Unified Navbar -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="index.html" id="navbar__logo">🌱 Carbon Compass For Kids</a>
+      <ul class="navbar__menu">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="calculator.html">🧾 My Footprint</a></li>
+        <li><a href="bestPractices.html">🌟 Easy Tips</a></li>
+        <li><a href="articles.html">📚 Fun Reads</a></li>
+        <li><a href="organizations.html">🫵 Helpers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Let’s Be Earth Heroes! 🌍</h1>
+      <p>We can work together to protect our planet!</p>
+    </div>
+  </section>
+
+  <section class="climate-section">
+    <h2>🔥 Why Is Earth Getting Hot?</h2>
+    <div class="climate-content">
+      <div class="description">
+        <p>Our Earth is warming up because of too much pollution. This makes the planet wear a heat-trapping blanket!</p>
+        <p>We can help take off that blanket and keep Earth cool! ❄️</p>
+      </div>
+      <div class="image-container">
+        <img src="sad-earth.jpg" alt="Sad Earth cartoon" />
+      </div>
+    </div>
+  </section>
+
+  <section class="climate-section">
+    <h2>🌈 What Can You Do?</h2>
+    <div class="climate-content">
+      <div class="description">
+        <ul>
+          <li>🚴‍♂️ Ride your bike or walk</li>
+          <li>🔦 Turn off lights when not using them</li>
+          <li>🌱 Plant trees and flowers</li>
+          <li>♻️ Recycle paper and bottles</li>
+          <li>🚿 Take quick showers</li>
+        </ul>
+      </div>
+      <div class="image-container">
+        <img src="happy-earth.jpeg" alt="Happy Earth cartoon" />
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer__container">
+    <p>Made with ❤️ by kids, for kids! © 2025 Carbon Compass For Kids</p>
+  </footer>
+
+  <!-- Firebase Setup -->
+  <script type="module">
+    // Import the functions you need from the SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC3u88DRrWXyBqABcmoO8vpQ30S5yocHNA",
+      authDomain: "carbon-compass-for.firebaseapp.com",
+      projectId: "carbon-compass-for",
+      storageBucket: "carbon-compass-for.appspot.com",
+      messagingSenderId: "346368480419",
+      appId: "1:346368480419:web:98443f41def0c279c65b16"
+    };
+
+    // Initialize Firebase and Firestore
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Example: save to DB
+    // const docRef = await addDoc(collection(db, "responses"), { score: 4 });
+  </script>
+</body>
+</html>

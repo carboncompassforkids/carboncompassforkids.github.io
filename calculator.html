@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carbon Calculator - Carbon Compass for Kids</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .calculator-container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #f1fdf4;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      text-align: center;
+      font-family: 'Comic Neue', cursive;
+    }
+
+    .calculator-container h2 {
+      color: #2e7d32;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .question {
+      margin: 1.5rem 0;
+      text-align: left;
+    }
+
+    .question label {
+      display: block;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .fancy-select, .text-input {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #66bb6a;
+      border-radius: 12px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: border 0.3s ease;
+    }
+
+    .fancy-select:focus, .text-input:focus {
+      border-color: #2e7d32;
+      outline: none;
+    }
+
+    .submit-btn {
+      margin-top: 2rem;
+      background: linear-gradient(135deg, #66bb6a, #43a047);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(135deg, #43a047, #2e7d32);
+      transform: scale(1.05);
+    }
+
+    .results {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #fff8dc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="index.html" id="navbar__logo">🌱 Carbon Compass For Kids</a>
+      <ul class="navbar__menu">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="calculator.html">🧮 My Footprint</a></li>
+        <li><a href="bestPractices.html">🌟 Easy Tips</a></li>
+        <li><a href="articles.html">📚 Fun Reads</a></li>
+        <li><a href="organizations.html">🤝 Helpers</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="calculator-container">
+    <h2>🧮 My Carbon Footprint</h2>
+    <form id="carbonForm">
+      <div class="question">
+        <label>🧒 What's your first name?</label>
+        <input type="text" name="name" class="text-input" required />
+      </div>
+      <div class="question">
+        <label>🎒 What grade are you in?</label>
+        <input type="text" name="grade" class="text-input" required />
+      </div>
+
+      <div class="question">
+        <label>🚗 How do you usually get to school?</label>
+        <select name="transport" class="fancy-select">
+          <option value="I walk, bike, or take the bus">I walk, bike, or take the bus</option>
+          <option value="Sometimes car, sometimes walk/bike">Sometimes car, sometimes walk/bike</option>
+          <option value="I go by car every day">I go by car every day</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label>💡 Do you turn off the lights when you leave a room?</label>
+        <select name="lights" class="fancy-select">
+          <option value="Yes, always!">Yes, always!</option>
+          <option value="Sometimes">Sometimes</option>
+          <option value="Not really">Not really</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label>♻️ Do you recycle at home?</label>
+        <select name="recycle" class="fancy-select">
+          <option value="Yes, all the time">Yes, all the time</option>
+          <option value="A little bit">A little bit</option>
+          <option value="No, we don’t">No, we don’t</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label>🥦 How many days a week do you eat veggies?</label>
+        <select name="veggies" class="fancy-select">
+          <option value="Almost every day">Almost every day</option>
+          <option value="A few times a week">A few times a week</option>
+          <option value="Rarely">Rarely</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label>🔌 Do you unplug devices when they’re not in use?</label>
+        <select name="unplug" class="fancy-select">
+          <option value="Yes, we do!">Yes, we do!</option>
+          <option value="Sometimes">Sometimes</option>
+          <option value="Nope">Nope</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">🌎 Show My Impact!</button>
+    </form>
+    <div class="results" id="resultBox"></div>
+  </div>
+
+  <footer class="footer__container">
+    <p>You're making a difference! 💪 © 2025 Carbon Compass for Kids</p>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC3u88DRrWXyBqABcmoO8vpQ30S5yocHNA",
+      authDomain: "carbon-compass-for.firebaseapp.com",
+      projectId: "carbon-compass-for",
+      storageBucket: "carbon-compass-for.appspot.com",
+      messagingSenderId: "346368480419",
+      appId: "1:346368480419:web:98443f41def0c279c65b16"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const ratingValues = {
+      "I walk, bike, or take the bus": 2,
+      "Sometimes car, sometimes walk/bike": 1,
+      "I go by car every day": 0,
+      "Yes, always!": 2,
+      "Sometimes": 1,
+      "Not really": 0,
+      "Yes, all the time": 2,
+      "A little bit": 1,
+      "No, we don’t": 0,
+      "Almost every day": 2,
+      "A few times a week": 1,
+      "Rarely": 0,
+      "Yes, we do!": 2,
+      "Nope": 0
+    };
+
+    document.getElementById("carbonForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      let score = 0;
+
+      const responses = {
+        name: form.name.value,
+        grade: form.grade.value,
+        transport: form.transport.value,
+        lights: form.lights.value,
+        recycle: form.recycle.value,
+        veggies: form.veggies.value,
+        unplug: form.unplug.value,
+        timestamp: new Date()
+      };
+
+      score += ratingValues[responses.transport];
+      score += ratingValues[responses.lights];
+      score += ratingValues[responses.recycle];
+      score += ratingValues[responses.veggies];
+      score += ratingValues[responses.unplug];
+
+      responses.score = score;
+
+      let message = "";
+      if (score >= 8) message = "🎉 You're a planet hero! Keep it up!";
+      else if (score >= 5) message = "👍 You're doing great. Try unplugging things or eating more veggies!";
+      else message = "😬 There's room to grow! Try walking more, recycling, and eating green foods!";
+
+      const resultBox = document.getElementById("resultBox");
+      resultBox.innerHTML = `<h3>Your Score: ${score}/10</h3><p>${message}</p>`;
+      resultBox.style.display = "block";
+
+      await addDoc(collection(db, "carbonScores"), responses);
+    });
+  </script>
+</body>
+</html>
